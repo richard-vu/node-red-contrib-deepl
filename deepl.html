@@ -1,13 +1,13 @@
 <script type="text/javascript">
-  RED.nodes.registerType('lower-case',{
-      category: 'function',
+  RED.nodes.registerType('deepl',{
+      category: 'deepl',
       color: '#a6bbcf',
       defaults: {
           name: {value:""}
       },
       inputs:1,
       outputs:1,
-      icon: "file.png",
+      icon: "icon.png",
       label: function() {
           return this.name||"lower-case";
       }
