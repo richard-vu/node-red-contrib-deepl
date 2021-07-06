@@ -1,26 +1,63 @@
 <script type="text/javascript">
-  RED.nodes.registerType('deepl',{
-      category: 'deepl',
-      color: '#a6bbcf',
-      defaults: {
-          name: {value:""}
-      },
-      inputs:1,
-      outputs:1,
-      icon: "icon.png",
-      label: function() {
-          return this.name||"deepl";
-      }
+  RED.nodes.registerType("deepl", {
+    category: "deepl",
+    color: "#a6bbcf",
+    defaults: {
+      name: { value: "Deepl" },
+      auth_key:{value: "Text", required:true},
+      text: { value: "d80f6475-8163-30a5-f00b-cbacd40ef03a:fx" },
+      output: { value: "EN"},
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "icon.png",
+    label: function () {
+      return this.name || "deepl";
+    },
   });
 </script>
 
 <script type="text/html" data-template-name="deepl">
+
   <div class="form-row">
-      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
-      <input type="text" id="node-input-name" placeholder="Name">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-auth_key">
+      <i class="icon-tag"></i>
+      auth_key
+    </label>
+    <input
+      type="text"
+      id="node-input-auth_key"
+      placeholder="DEEPL auth_key"
+    />
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-text"><i class="fa fa-tag"></i> Text</label>
+    <input type="text" id="node-input-text" placeholder="Text" />
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-tpSlot">
+      <i class="icon-tag"></i>
+      target_lang
+    </label>
+    <select style="width: 200px" id="node-input-output">
+      <option value="JA">日本語</option>
+      <option value="EN">English</option>
+    </select>
   </div>
 </script>
 
 <script type="text/html" data-help-name="deepl">
-  <p>A simple node that converts the message payloads into all deepl characters</p>
+  <p>
+    The DeepL API is an interface that allows other computer programs to send texts to our <br/>
+    servers and receive high-quality translations. This opens a whole universe of opportunities <br/>
+    for developers worldwide: Any translation product you can imagine can now be built on top of <br/>
+    DeepL's superior translation technology.
+  </p>
 </script>
