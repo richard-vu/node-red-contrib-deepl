@@ -1,26 +1,120 @@
 <script type="text/javascript">
-  RED.nodes.registerType('deepl',{
-      category: 'deepl',
-      color: '#a6bbcf',
-      defaults: {
-          name: {value:""}
+  RED.nodes.registerType("deepl", {
+    category: "deepl",
+    color: "#a6bbcf",
+    defaults: {
+      name: { value: "Deepl" },
+      auth_key: {
+        value: "",
+        required: true,
       },
-      inputs:1,
-      outputs:1,
-      icon: "icon.png",
-      label: function() {
-          return this.name||"lower-case";
-      }
+      source_lang: { value: "" },
+      text: { value: "Text" },
+      target_lang: { value: "EN" },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "icon.png",
+    label: function () {
+      return this.name || "deepl";
+    },
   });
 </script>
 
-<script type="text/html" data-template-name="lower-case">
+<script type="text/html" data-template-name="deepl">
   <div class="form-row">
-      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
-      <input type="text" id="node-input-name" placeholder="Name">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-auth_key">
+      <i class="icon-tag"></i>
+      auth_key
+    </label>
+    <input type="text" id="node-input-auth_key" placeholder="DEEPL auth_key" />
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-tpSlot">
+      <i class="icon-tag"></i>
+      source_lang
+    </label>
+    <select style="width: 200px" id="node-input-source_lang">
+      <option value="BG">Bulgarian</option>
+      <option value="CS">Czech</option>
+      <option value="DA">Danish</option>
+      <option value="DE">German</option>
+      <option value="EL">Greek</option>
+      <option value="EN">English</option>
+      <option value="ES">Spanish</option>
+      <option value="ET">Estonian</option>
+      <option value="FI">Finnish</option>
+      <option value="FR">French</option>
+      <option value="HU">Hungarian</option>
+      <option value="IT">Italian</option>
+      <option value="JA">日本語</option>
+      <option value="LT">Lithuanian</option>
+      <option value="LV">Latvian</option>
+      <option value="NL">Dutch</option>
+      <option value="PL">Polish</option>
+      <option value="PT">Portuguese</option>
+      <option value="RO">Romanian</option>
+      <option value="RU">Russian</option>
+      <option value="SK">Slovak</option>
+      <option value="SL">Slovenian</option>
+      <option value="SV">Swedish</option>
+      <option value="ZH">Chinese</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-text"><i class="fa fa-tag"></i> Text</label>
+    <input type="text" id="node-input-text" placeholder="Text" />
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-tpSlot">
+      <i class="icon-tag"></i>
+      target_lang
+    </label>
+    <select style="width: 200px" id="node-input-target_lang">
+      <option value="BG">Bulgarian</option>
+      <option value="CS">Czech</option>
+      <option value="DA">Danish</option>
+      <option value="DE">German</option>
+      <option value="EL">Greek</option>
+      <option value="EN">English</option>
+      <option value="ES">Spanish</option>
+      <option value="ET">Estonian</option>
+      <option value="FI">Finnish</option>
+      <option value="FR">French</option>
+      <option value="HU">Hungarian</option>
+      <option value="IT">Italian</option>
+      <option value="JA">日本語</option>
+      <option value="LT">Lithuanian</option>
+      <option value="LV">Latvian</option>
+      <option value="NL">Dutch</option>
+      <option value="PL">Polish</option>
+      <option value="PT">Portuguese</option>
+      <option value="RO">Romanian</option>
+      <option value="RU">Russian</option>
+      <option value="SK">Slovak</option>
+      <option value="SL">Slovenian</option>
+      <option value="SV">Swedish</option>
+      <option value="ZH">Chinese</option>
+    </select>
   </div>
 </script>
 
-<script type="text/html" data-help-name="lower-case">
-  <p>A simple node that converts the message payloads into all lower-case characters</p>
+<script type="text/html" data-help-name="deepl">
+  <p>
+    The DeepL API is an interface that allows other computer programs to send
+    texts to our <br />
+    servers and receive high-quality translations. This opens a whole universe
+    of opportunities <br />
+    for developers worldwide: Any translation product you can imagine can now be
+    built on top of <br />
+    DeepL's superior translation technology.
+  </p>
 </script>
