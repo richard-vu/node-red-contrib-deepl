@@ -3,20 +3,21 @@
     category: "deepl",
     color: "#a6bbcf",
     defaults: {
-      name: { value: "Deepl" },
+      name: { value: "Deepl Translation" },
       auth_key: {
         value: "",
         required: true,
       },
+      option: { value: "" },
       source_lang: { value: "" },
-      text: { value: "Text" },
+      text: { value: "" },
       target_lang: { value: "EN" },
     },
     inputs: 1,
     outputs: 1,
     icon: "icon.png",
     label: function () {
-      return this.name || "deepl";
+      return this.name || "Deepl Translation";
     },
   });
 </script>
@@ -38,6 +39,19 @@
   <div class="form-row">
     <label for="node-input-tpSlot">
       <i class="icon-tag"></i>
+      Option
+    </label>
+    <select style="width: 200px" id="node-input-option">
+      <option value="https://api-free.deepl.com/v2/translate">
+        Deepl Translation Free
+      </option>
+      <option value="https://api.deepl.com/v2/translate">Deepl Translation Pro</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-tpSlot">
+      <i class="icon-tag"></i>
       source_lang
     </label>
     <select style="width: 200px" id="node-input-source_lang">
@@ -53,7 +67,7 @@
       <option value="FR">French</option>
       <option value="HU">Hungarian</option>
       <option value="IT">Italian</option>
-      <option value="JA">日本語</option>
+      <option value="JA">Japanese</option>
       <option value="LT">Lithuanian</option>
       <option value="LV">Latvian</option>
       <option value="NL">Dutch</option>
@@ -91,7 +105,7 @@
       <option value="FR">French</option>
       <option value="HU">Hungarian</option>
       <option value="IT">Italian</option>
-      <option value="JA">日本語</option>
+      <option value="JA">Japanese</option>
       <option value="LT">Lithuanian</option>
       <option value="LV">Latvian</option>
       <option value="NL">Dutch</option>
